@@ -52,12 +52,36 @@ python-versions = ">=3.6"
 django = ">=3.0"
 
 [[package]]
+name = "djangorestframework-jwt"
+version = "1.11.0"
+description = "JSON Web Token based authentication for Django REST framework"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+PyJWT = ">=1.5.2,<2.0.0"
+
+[[package]]
 name = "psycopg2"
 version = "2.9.9"
 description = "psycopg2 - Python-PostgreSQL Database Adapter"
 category = "main"
 optional = false
 python-versions = ">=3.7"
+
+[[package]]
+name = "pyjwt"
+version = "1.7.1"
+description = "JSON Web Token implementation in Python"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.extras]
+crypto = ["cryptography (>=1.4)"]
+flake8 = ["flake8", "flake8-import-order", "pep8-naming"]
+test = ["pytest (>=4.0.1,<5.0.0)", "pytest-cov (>=2.6.0,<3.0.0)", "pytest-runner (>=4.2,<5.0.0)"]
 
 [[package]]
 name = "sqlparse"
@@ -90,14 +114,16 @@ python-versions = ">=2"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "e1d21fe36c9908243d20c6cd9e0c82a868606745e480ee1e807d5c0587b7de6e"
+content-hash = "75465b5d54bad7f5710723235c99965d143c70e3be02ec6fb54363d6e1bff42e"
 
 [metadata.files]
 asgiref = []
 django = []
 django-extensions = []
 djangorestframework = []
+djangorestframework-jwt = []
 psycopg2 = []
+pyjwt = []
 sqlparse = []
 typing-extensions = []
 tzdata = []
