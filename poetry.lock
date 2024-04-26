@@ -1,0 +1,103 @@
+[[package]]
+name = "asgiref"
+version = "3.8.1"
+description = "ASGI specs, helper code, and adapters"
+category = "main"
+optional = false
+python-versions = ">=3.8"
+
+[package.dependencies]
+typing-extensions = {version = ">=4", markers = "python_version < \"3.11\""}
+
+[package.extras]
+tests = ["pytest", "pytest-asyncio", "mypy (>=0.800)"]
+
+[[package]]
+name = "django"
+version = "5.0.4"
+description = "A high-level Python web framework that encourages rapid development and clean, pragmatic design."
+category = "main"
+optional = false
+python-versions = ">=3.10"
+
+[package.dependencies]
+asgiref = ">=3.7.0,<4"
+sqlparse = ">=0.3.1"
+tzdata = {version = "*", markers = "sys_platform == \"win32\""}
+
+[package.extras]
+argon2 = ["argon2-cffi (>=19.1.0)"]
+bcrypt = ["bcrypt"]
+
+[[package]]
+name = "django-extensions"
+version = "3.2.3"
+description = "Extensions for Django"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+Django = ">=3.2"
+
+[[package]]
+name = "djangorestframework"
+version = "3.15.1"
+description = "Web APIs for Django, made easy."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+django = ">=3.0"
+
+[[package]]
+name = "psycopg2"
+version = "2.9.9"
+description = "psycopg2 - Python-PostgreSQL Database Adapter"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[[package]]
+name = "sqlparse"
+version = "0.5.0"
+description = "A non-validating SQL parser."
+category = "main"
+optional = false
+python-versions = ">=3.8"
+
+[package.extras]
+dev = ["build", "hatch"]
+doc = ["sphinx"]
+
+[[package]]
+name = "typing-extensions"
+version = "4.11.0"
+description = "Backported and Experimental Type Hints for Python 3.8+"
+category = "main"
+optional = false
+python-versions = ">=3.8"
+
+[[package]]
+name = "tzdata"
+version = "2024.1"
+description = "Provider of IANA time zone data"
+category = "main"
+optional = false
+python-versions = ">=2"
+
+[metadata]
+lock-version = "1.1"
+python-versions = "^3.10"
+content-hash = "e1d21fe36c9908243d20c6cd9e0c82a868606745e480ee1e807d5c0587b7de6e"
+
+[metadata.files]
+asgiref = []
+django = []
+django-extensions = []
+djangorestframework = []
+psycopg2 = []
+sqlparse = []
+typing-extensions = []
+tzdata = []
