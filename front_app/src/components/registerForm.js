@@ -3,10 +3,10 @@ import { Button, Checkbox, Form, Input } from 'antd';
 import Request from '../api'
 
 const onFinish = (values) => {
-    const url = '/register'
+    const url = '/register/'
     Request.post(url, values, {
     }).then(function (response) {
-        console.log("comment posted successfully");
+        console.log("user added successfully");
     }).catch(function (error) {
         console.log(error);
     })
@@ -66,6 +66,19 @@ const RegisterForm = () => (
         {
           required: true,
           message: 'Please input your Email',
+        },
+      ]}
+    >
+      <Input />
+    </Form.Item>
+
+    <Form.Item
+      label="Mobile"
+      name="mobile"
+      rules={[
+        {
+          required: true,
+          message: 'Please input your mobile number',
         },
       ]}
     >
