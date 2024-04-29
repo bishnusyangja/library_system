@@ -9,38 +9,36 @@ function BookList() {
     return <div>Login Form</div>
 }
 
-const AppRoute = (props) => {
+const RootElement = (props) => {
     let authToken = localStorage.getItem('authToken');
-    let is_public = props.hasOwnProperty('is_public') ? props.is_public : false;
-    if (props.is_public){
-        return {path: props.path, element: props.element};
-    }else if (authToken !== null && authToken !== ''){
-        return {path: props.path, element: props.element};
+    let rootPath = props.hasOwnProperty('rootPath') ? props.rootPath : false;
+    if (authToken !== null && authToken !== ''){
+        if (rootPath){
+            window.location.href = '/book-list';
+        }
+        return <> {props.child} </>
     }else{
-        return {path: '/login', element: <LoginForm/>};
+        window.location.href = '/login';
     }
 }
 
 const router = createBrowserRouter([
-  AppRoute({
-    is_public: true,
+  {
     path: "/",
-    element: <LoginForm/>,
-  }),
-  AppRoute({
-    is_public: true,
+    element: <RootElement rootPath={true} />,
+  },
+  {
     path: "/login",
     element: <LoginForm/>,
-  }),
-  AppRoute({
-    is_public: true,
+  },
+  {
     path: "/register",
     element: <RegisterForm/>,
-  }),
-  AppRoute({
+  },
+  {
     path: "/book-list",
-    element: <BookList/>,
-  }),
+    element: <RootElement child={<BookList />} />,
+  },
 
 ]);
 
