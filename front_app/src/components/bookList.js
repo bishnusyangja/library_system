@@ -8,14 +8,18 @@ const BookList = () => {
     const [bookList, setBookList] = useState(null);
     const [load, setLoad] = useState(false);
 
-    useEffect(() => {
-        let url = '/book/'
-        Request.get(url, {}).then(function (response) {
+    const get_data = (search) => {
+        let url = '/book/';
+        Request.get(url, {search: search}).then(function (response) {
             setBookList(response.data.results);
             setLoad(false);
         }).catch(function (error) {
             console.log(error);
-        })
+        });
+    }
+
+    useEffect(() => {
+        get_data('');
     }, [load]);
 
     const get_detail_url = (id) => {
@@ -69,8 +73,30 @@ const BookList = () => {
       }
     ];
 
+    const onSearch = (values) => {
+        get_data(values.search);
+    }
+
+    const formItemLayout = null;
+
     return (
         <>
+            <div style={{margin: '10px'}}>
+            <Form layout="horizontal"
+                  labelCol={{
+                    span: 4,
+                  }}
+                  wrapperCol={{
+                    span: 14,
+                  }}
+                 onFinish={onSearch}>
+                  <Form.Item label="Search" name="search">
+                    <Input placeholder="Search Book By name and author" />
+                  </Form.Item>
+                  <Button type="primary">Submit</Button>
+
+            </Form>
+            </div>
             <a href="/add-book">Add Book</a>
             {bookList &&  <Table dataSource={bookList} columns={columns} />}
         </>

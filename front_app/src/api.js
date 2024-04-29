@@ -14,7 +14,7 @@ const getRequest = () => {
 const Request = {
 
     get : (url, params) => {
-        return getRequest().get(url, params);
+        return getRequest().get(url, {params: params});
     },
 
     post : (url, data, params) => {

@@ -4,6 +4,7 @@ import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import LoginForm from "./components/loginForm";
 import RegisterForm from "./components/registerForm";
 import BookList from "./components/bookList";
+import BookForm from "./components/addBook";
 
 
 const RootElement = (props) => {

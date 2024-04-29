@@ -4,7 +4,6 @@ import Request from '../api'
 import {useState} from 'react';
 
 
-
 const RegisterForm = () => {
     const [message, setMessage] = useState({text:'', type: ''});
 
