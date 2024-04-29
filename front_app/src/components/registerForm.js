@@ -1,22 +1,38 @@
 import React from 'react';
-import { Button, Checkbox, Form, Input } from 'antd';
+import { Button, Checkbox, Form, Input, Alert } from 'antd';
 import Request from '../api'
+import {useState} from 'react';
 
-const onFinish = (values) => {
-    const url = '/register/'
-    Request.post(url, values, {
-    }).then(function (response) {
-        console.log("user added successfully");
-    }).catch(function (error) {
-        console.log(error);
-    })
-};
 
-const onFinishFailed = (errorInfo) => {
-  console.log('Failed:', errorInfo);
-};
 
-const RegisterForm = () => (
+const RegisterForm = () => {
+    const [message, setMessage] = useState({text:'', type: ''});
+
+    const onFinish = (values) => {
+        const url = '/register/'
+        Request.post(url, values, {
+        }).then(function (response) {
+            setMessage({text: 'User Added successfully', type: 'success'})
+        }).catch(function (error) {
+            console.log(error);
+        })
+    };
+
+    const onFinishFailed = (errorInfo) => {
+      console.log('Failed:', errorInfo);
+    };
+
+    return(
+    <>
+    <div style={{margin: '15px'}}>
+    {message.text && <Alert
+        message="Success"
+        description={message.text}
+        type={message.type}
+        showIcon
+        closable
+        /> }
+    </div>
   <Form
     name="basic"
     labelCol={{
@@ -122,6 +138,7 @@ const RegisterForm = () => (
       </Button>
     </Form.Item>
   </Form>
-);
+  </>
+)};
 
 export default RegisterForm;
