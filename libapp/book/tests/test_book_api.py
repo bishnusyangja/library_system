@@ -56,3 +56,7 @@ class RegisterUserAPITestCase(TestCase):
         result = resp.json()
         self.assertEqual(result['name'], data['name'])
         self.assertEqual(result['author'], data['author'])
+
+    def test_book_search_api(self):
+        baker.make(Book, name='something good', author='handsome boy', _quantity=3)
+        baker.make(Book, name='something')

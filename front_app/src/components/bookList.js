@@ -6,12 +6,14 @@ import {useState, useEffect} from 'react';
 
 const BookList = () => {
     const [bookList, setBookList] = useState(null);
+    const [bookCount, setBookCount] = useState(0);
     const [load, setLoad] = useState(false);
 
     const get_data = (search) => {
         let url = '/book/';
         Request.get(url, {search: search}).then(function (response) {
             setBookList(response.data.results);
+            setBookCount(response.data.count);
             setLoad(false);
         }).catch(function (error) {
             console.log(error);
@@ -98,6 +100,9 @@ const BookList = () => {
             </Form>
             </div>
             <a href="/add-book">Add Book</a>
+            <div style={{margin: '20px'}}>
+                Total {bookCount} number of books
+            </div>
             {bookList &&  <Table dataSource={bookList} columns={columns} />}
         </>
     )
