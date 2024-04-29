@@ -3,11 +3,8 @@ import './App.css';
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import LoginForm from "./components/loginForm";
 import RegisterForm from "./components/registerForm";
+import BookList from "./components/bookList";
 
-
-function BookList() {
-    return <div>Login Form</div>
-}
 
 const RootElement = (props) => {
     let authToken = localStorage.getItem('authToken');
