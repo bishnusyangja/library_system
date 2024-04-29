@@ -8,11 +8,9 @@ class Command(BaseCommand):
     help = 'Loads sample data'
 
     def handle(self, *args, **options):
-        # abc_user = baker.make(User, first_name='ABC', last_name='Sharma', email='abc@example.com')
-        # self.stdout.write('Created user successfylly ... ')
-
-        baker.make(Book, name='Game Play', _quantity=30)
-        baker.make(Book, name='Writing and Speaking')
-        baker.make(Book, name='Reading and Speaking')
-
+        baker.make(Book, name='Nothing is impossible', author='Ramesh Guragain')
+        baker.make(Book, name='Writing and Speaking', author='Sandesh Satyal')
+        baker.make(Book, name='Making Sentences in Nepali', author='Abhram John')
+        baker.make(Book, name='Developed Country in the World', author='Chris Norman')
+        baker.make(Book, name='Everything is easy', author='Dan Joy')
         self.stdout.write('Created books sucessfully ... ')

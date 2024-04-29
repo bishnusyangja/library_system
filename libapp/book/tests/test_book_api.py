@@ -53,3 +53,6 @@ class RegisterUserAPITestCase(TestCase):
         data = {'name': 'Very good book', 'author': 'Someone else'}
         resp = self.client.put(f'{self.url}{book.id}/', data=data, content_type='application/json', headers=self.get_headers())
         self.assertEqual(resp.status_code, 200)
+        result = resp.json()
+        self.assertEqual(result['name'], data['name'])
+        self.assertEqual(result['author'], data['author'])

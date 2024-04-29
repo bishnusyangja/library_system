@@ -36,6 +36,10 @@ const router = createBrowserRouter([
     path: "/book-list",
     element: <RootElement child={<BookList />} />,
   },
+  {
+    path: "/add-book",
+    element: <RootElement child={<BookForm />} />,
+  },
 
 ]);
 
