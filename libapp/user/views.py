@@ -10,6 +10,7 @@ from user.serializer import UserSerializer
 from rest_framework.response import Response
 from rest_framework import status
 
+from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 
 class RegisterUserAPI(CreateAPIView):
     serializer_class = UserSerializer

@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-
+import datetime
 from pathlib import Path
 from corsheaders.defaults import default_headers
 from corsheaders.defaults import default_methods
@@ -175,3 +175,8 @@ from django.utils.encoding import smart_str
 django.utils.encoding.smart_text = smart_str
 from django.utils.translation import gettext
 django.utils.translation.ugettext = gettext
+
+
+JWT_AUTH = {
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(days=7),
+}

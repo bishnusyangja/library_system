@@ -6,7 +6,7 @@ const getRequest = () => {
     axios.defaults.headers.common['Content-Type'] = 'application/json';
     let authToken = localStorage.getItem('authToken');
     if (authToken != null && authToken != ''){
-        axios.defaults.headers.common['Authorization'] = `Token ${authToken}`;
+        axios.defaults.headers.common['Authorization'] = `JWT ${authToken}`;
     }
     return axios
 }
