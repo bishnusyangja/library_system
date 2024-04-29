@@ -59,4 +59,17 @@ class RegisterUserAPITestCase(TestCase):
 
     def test_book_search_api(self):
         baker.make(Book, name='something good', author='handsome boy', _quantity=3)
-        baker.make(Book, name='something')
+        baker.make(Book, name='Nothing', author='something')
+        baker.make(Book, name='handsome', author='Nothing', _quantity=2)
+        search = 'Nothing'
+        resp = self.client.get(self.url, data={'search': search}, content_type='application/json',
+                               headers=self.get_headers())
+        self.assertEqual(resp.status_code, 200)
+        self.assertEqual(resp.json()['count'], 3)
+        search = 'handsome'
+        resp = self.client.get(self.url, data={'search': search}, content_type='application/json',
+                               headers=self.get_headers())
+        self.assertEqual(resp.status_code, 200)
+        self.assertEqual(resp.json()['count'], 5)
+
+
